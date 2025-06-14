@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "noImplicitAny": true,
+    "module": "ES6",
+    "target": "ES5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+
+    //baseUrl - позволяет использовать относительные пути в import
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
+    //esModuleInterop - позволяет использовать CommonJS и ES6 модули вместе
+    "esModuleInterop": true,
+    //allowSyntheticDefaultImports - позволяет использовать default импорты из CommonJS модулей
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
