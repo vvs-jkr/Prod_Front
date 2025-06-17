@@ -1,4 +1,6 @@
-import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph';
+import {
+    JsxAttribute, Node, Project, SyntaxKind,
+} from 'ts-morph';
 
 const removedFeatureName = process.argv[2]; // example isArticleEnabled
 const featureState = process.argv[3]; // example off\on
@@ -30,8 +32,8 @@ function isToggleFunction(node: Node) {
 
     node.forEachChild((child) => {
         if (
-            child.isKind(SyntaxKind.Identifier) &&
-            child.getText() === toggleFunctionName
+            child.isKind(SyntaxKind.Identifier)
+      && child.getText() === toggleFunctionName
         ) {
             isToggleFeatures = true;
         }
@@ -80,12 +82,7 @@ const replaceToggleFunction = (node: Node) => {
     }
 };
 
-const getAttributeNodeByName = (
-    jsxAttributes: JsxAttribute[],
-    name: string,
-) => {
-    return jsxAttributes.find((node) => node.getName() === name);
-};
+const getAttributeNodeByName = (jsxAttributes: JsxAttribute[], name: string) => jsxAttributes.find((node) => node.getName() === name);
 
 const getReplacedComponent = (attribute?: JsxAttribute) => {
     const value = attribute
@@ -97,7 +94,7 @@ const getReplacedComponent = (attribute?: JsxAttribute) => {
         return value.slice(1, -1);
     }
 
-    return value;
+    return value || '';
 };
 
 const replaceComponent = (node: Node) => {
@@ -126,19 +123,19 @@ const replaceComponent = (node: Node) => {
     }
 };
 
-files.forEach((sourceFile) => {
-    sourceFile.forEachDescendant((node) => {
-        if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            return replaceToggleFunction(node);
-        }
+// files.forEach((sourceFile) => {
+//     sourceFile.forEachDescendant((node) => {
+//         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
+//             return replaceToggleFunction(node);
+//         }
 
-        if (
-            node.isKind(SyntaxKind.JsxSelfClosingElement) &&
-            isToggleComponent(node)
-        ) {
-            return replaceComponent(node);
-        }
-    });
-});
+//         if (
+//             node.isKind(SyntaxKind.JsxSelfClosingElement)
+//       && isToggleComponent(node)
+//         ) {
+//             return replaceComponent(node);
+//         }
+//     });
+// });
 
 project.save();
