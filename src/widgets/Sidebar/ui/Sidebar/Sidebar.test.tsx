@@ -1,4 +1,3 @@
-import React from 'react'
 import { fireEvent, screen } from '@testing-library/react'
 import { renderWithTranslation } from 'shared/lib/test/renderWithTranslation/renderWithTranslation'
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar'
