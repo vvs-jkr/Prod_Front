@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppRouter } from './providers/router';
 
