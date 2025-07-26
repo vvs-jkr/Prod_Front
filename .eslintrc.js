@@ -46,6 +46,17 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
+        'no-param-reassign': 'off',
+        'comma-dangle': [
+            'error',
+            {
+                arrays: 'always-multiline',
+                objects: 'always-multiline',
+                imports: 'always-multiline',
+                exports: 'always-multiline',
+                functions: 'never',
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
