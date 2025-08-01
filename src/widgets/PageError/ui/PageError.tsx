@@ -4,14 +4,14 @@ import { Button } from 'shared/ui/Button/Button';
 import cls from './PageError.module.scss';
 
 interface ErrorPageProps {
-  className?: string
+    className?: string;
 }
 
 export const PageError = ({ className }: ErrorPageProps) => {
     const { t } = useTranslation();
 
     const reloadPage = () => {
-    // eslint-disable-next-line no-restricted-globals
+        // eslint-disable-next-line no-restricted-globals
         location.reload();
     };
 

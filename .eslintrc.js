@@ -59,6 +59,8 @@ module.exports = {
         ],
         'object-curly-newline': 'off',
         'function-paren-newline': 'off',
+        quotes: ['error', 'single', { avoidEscape: true }],
+        'jsx-quotes': ['error', 'prefer-single'],
     },
     globals: {
         __IS_DEV__: true,

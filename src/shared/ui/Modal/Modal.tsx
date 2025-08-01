@@ -1,5 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
