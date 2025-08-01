@@ -57,6 +57,8 @@ module.exports = {
                 functions: 'never',
             },
         ],
+        'object-curly-newline': 'off',
+        'function-paren-newline': 'off',
     },
     globals: {
         __IS_DEV__: true,
