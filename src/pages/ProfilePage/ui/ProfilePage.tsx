@@ -10,7 +10,7 @@ import {
     profileReducer,
 } from 'entities/Profile';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -22,7 +22,7 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(fetchProfileData());
