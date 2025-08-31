@@ -6,10 +6,12 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from 'entities/User';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
     const { theme } = useTheme();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     // const inited = useSelector(getUserInited);
 
     useEffect(() => {
