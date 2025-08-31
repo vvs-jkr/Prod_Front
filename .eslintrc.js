@@ -47,6 +47,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
+        'no-undef': 'off',
         'comma-dangle': [
             'error',
             {
@@ -57,9 +58,14 @@ module.exports = {
                 functions: 'never',
             },
         ],
+        'object-curly-newline': 'off',
+        'function-paren-newline': 'off',
+        quotes: ['error', 'single', { avoidEscape: true }],
+        'jsx-quotes': ['error', 'prefer-single'],
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
     overrides: [
         {

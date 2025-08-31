@@ -6,10 +6,11 @@ import {
 } from '../lib/ThemeContext';
 
 interface ThemeProviderProps {
-  children: React.ReactNode
+    children: React.ReactNode;
 }
 
-const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+const defaultTheme =
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [theme, setTheme] = useState<Theme>(defaultTheme);
@@ -19,7 +20,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
             theme,
             setTheme,
         }),
-        [theme],
+        [theme]
     );
 
     return (

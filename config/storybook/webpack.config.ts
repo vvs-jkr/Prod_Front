@@ -1,4 +1,4 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
@@ -21,7 +21,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     if (!newConfig.module.rules) newConfig.module.rules = [];
 
     newConfig.module.rules = newConfig.module.rules
-        .filter((rule): rule is RuleSetRule => !!rule && typeof rule === 'object')
+        .filter(
+            (rule): rule is RuleSetRule => !!rule && typeof rule === 'object'
+        )
         .map((rule: RuleSetRule) => {
             if (rule.test && /svg/.test(rule.test as string)) {
                 return { ...rule, exclude: /\.svg$/i };
@@ -34,6 +36,16 @@ export default ({ config }: { config: webpack.Configuration }) => {
         use: ['@svgr/webpack'],
     });
     newConfig.module.rules.push(buildCssLoader(true));
+
+    if (!newConfig.plugins) {
+        newConfig.plugins = [];
+    }
+    newConfig.plugins.push(
+        new DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify(''),
+        })
+    );
 
     return newConfig;
 };
